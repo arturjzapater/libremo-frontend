@@ -46,9 +46,6 @@ module.exports = {
             'minify',
             '@babel/preset-env',
             '@babel/preset-react',
-            {
-              targets: '> 0.25%, not dead',
-            },
           ],
         },
       },
@@ -66,7 +63,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       scriptLoading: 'defer',
       template: './public/index.html',
-      favicon: './src/media/favicon.ico',
     }),
     new MiniCssExtractPlugin({
       filename: 'style.css',
