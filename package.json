@@ -1,0 +1,38 @@
+{
+  "name": "libremo-frontent",
+  "version": "1.0.0",
+  "description": "A book shopping website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Artur J Zapater",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.11.4",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "autoprefixer": "^9.8.6",
+    "babel-loader": "^8.1.0",
+    "babel-preset-minify": "^0.5.1",
+    "css-loader": "^4.2.1",
+    "html-webpack-plugin": "^4.3.0",
+    "mini-css-extract-plugin": "^0.10.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
+    "redux": "^4.0.5",
+    "tailwindcss": "^1.7.3",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.7.0",
+    "eslint-config-pixie": "^1.0.2",
+    "eslint-plugin-react": "^7.20.6"
+  }
+}
