@@ -19,6 +19,7 @@ module.exports = {
     rules: {
         'indent': [ 'error', 4 ],
         'no-trailing-spaces': 'error',
+        'react/display-name': 'off',
         'react/prop-types': 'off',
     },
 }

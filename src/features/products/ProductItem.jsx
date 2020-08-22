@@ -1,15 +1,16 @@
 import React from 'react'
 
-const ProductItem = product => (
+const ProductItem = props => (
     <article className="bg-orange-100 m-4 p-6 shadow">
-        <h2 className="text-xl">{product.title}</h2>
-        <span>{product.author}</span>
+        <h2 className="text-xl">{props.title}</h2>
+        <span>{props.author}</span>
+        <button onClick={() => props.addFn(props.id)}>Add to Cart</button>
         <ul className="text-sm">
-            <li>Pages: {product.pages}</li>
-            <li>Price: {product.price}</li>
-            <li>Dimensions: {product.length} mm x {product.width} mm</li>
+            <li>Pages: {props.pages}</li>
+            <li className="price">Price: {props.price}</li>
+            <li>Dimensions: {props.length} mm x {props.width} mm</li>
         </ul>
-        <p>{product.description}</p>
+        <p>{props.description}</p>
     </article>
 )
 

@@ -1,19 +1,19 @@
 const initState = {
     view: 'home',
     status: 'idle',
+    cart: null,
     data: {},
 }
 
 const actions = {
+    GET_CART: (state, { cart }) => ({
+        ...state,
+        cart,
+    }),
     LOADED_HOME: state => ({
         ...state,
         view: 'home',
         status: 'idle',
-        data: {},
-    }),
-    LOADING_PRODUCTS: state => ({
-        ...state,
-        status: 'loading',
         data: {},
     }),
     LOADED_PRODUCTS: (state, { data }) => ({
@@ -21,6 +21,11 @@ const actions = {
         view: 'products',
         status: 'idle',
         data,
+    }),
+    LOADING_PRODUCTS: state => ({
+        ...state,
+        status: 'loading',
+        data: {},
     }),
     default: state => ({
         ...state,
