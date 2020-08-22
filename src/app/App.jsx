@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import Header from './Header'
+import Cart from '../features/cart/Cart'
 import Home from '../features/home/Home'
 import Products from '../features/products/Products'
 
 const views = {
+    cart: <Cart />,
     home: <Home />,
     products: <Products />,
 }

@@ -7,7 +7,7 @@ const makeItem = addFn => x => <ProductItem key={x.id} addFn={addFn} {...x} />
 
 const Products = ({ cart, data, addProduct }) => (
     <>
-        {data.map(makeItem(addProduct(cart)))}
+        {data.products.map(makeItem(addProduct(cart)))}
     </>
 )
 

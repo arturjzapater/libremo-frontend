@@ -6,11 +6,15 @@ const makeOpts = product => ({
     body: JSON.stringify({ product }),
 })
 
-const addProduct = (cart, product) => _dispatch => {
-    console.log(cart, product)
+const addProduct = (cart, product) => dispatch => {
     fetch(`/api/carts/${cart}`, makeOpts(product))
         .then(res => res.json())
-        .then(console.log)
+        .then(({ count }) => dispatch({
+            type: 'UPDATE_COUNT',
+            payload: {
+                count,
+            },
+        }))
 }
 
 export {
