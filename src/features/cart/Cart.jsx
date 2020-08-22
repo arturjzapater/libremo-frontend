@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-const Cart = ({ data }) => console.log(data) || (
+const Cart = ({ data }) => (
     <>
         <h2>Your Shopping Cart</h2>
         <section className="grid grid-cols-2">

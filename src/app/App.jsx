@@ -4,6 +4,7 @@ import Header from './Header'
 import Cart from '../features/cart/Cart'
 import Home from '../features/home/Home'
 import Products from '../features/products/Products'
+import Warning from '../features/warning/Warning'
 
 const views = {
     cart: <Cart />,
@@ -34,6 +35,7 @@ const App = ({ cart, view, getCart }) => {
         <div className="bg-orange-200 min-h-screen">
             <Header />
             <main className="p-4">
+                <Warning />
                 {getView(view)}
             </main>
         </div>
