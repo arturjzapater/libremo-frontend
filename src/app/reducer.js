@@ -7,10 +7,6 @@ const initState = {
 }
 
 const actions = {
-    GET_CART: (state, { cart }) => ({
-        ...state,
-        cart,
-    }),
     LOADED_CART: (state, { data }) => ({
         ...state,
         view: 'cart',
@@ -34,6 +30,10 @@ const actions = {
     LOADING: state => ({
         ...state,
         status: 'loading',
+    }),
+    SET_CART: (state, { cart }) => ({
+        ...state,
+        cart,
     }),
     UPDATE_COUNT: (state, { count }) => ({
         ...state,

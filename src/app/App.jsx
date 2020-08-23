@@ -17,7 +17,7 @@ const getCart = () =>
         fetch('/api/carts', { method: 'POST' })
             .then(res => res.json())
             .then(({ id }) => dispatch({
-                type: 'GET_CART',
+                type: 'SET_CART',
                 payload: {
                     cart: id,
                 },
