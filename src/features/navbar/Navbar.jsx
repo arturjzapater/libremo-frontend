@@ -1,12 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import NavLink from './NavLink'
 import * as NavbarActions from './NavbarActions'
 
 const Navbar = ({ cart, count, loadCart, loadHome, loadProducts }) => (
     <nav className="flex">
-        <button onClick={loadHome}>Home</button>
-        <button onClick={loadProducts}>Products</button>
-        <button onClick={loadCart(cart)}>Cart ({count})</button>
+        <NavLink action={loadHome} text="Home" />
+        <NavLink action={loadProducts} text="Products" />
+        <NavLink action={loadCart(cart)} text={`Cart (${count})`} />
     </nav>
 )
 

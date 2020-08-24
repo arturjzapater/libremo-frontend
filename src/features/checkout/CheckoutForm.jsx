@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Button from '../button/Button'
 import Input from './Input'
 import Warning from '../warning/Warning'
 import validate from './validate'
@@ -35,7 +36,7 @@ const CheckoutForm = ({ style = '', onSubmit }) => {
             <Input label="Postal code:" name="postal_code" value={postalCode} onChange={handleChange(setPostalCode)} />
             <Input label="Email address:" name="email" value={email} onChange={handleChange(setEmail)} />
             <Input label="Phone number:" name="phone" value={phone} onChange={handleChange(setPhone)} />
-            <button type="submit" onClick={handleSubmit}>Place Order</button>
+            <Button onClick={handleSubmit} label="Place Order" />
         </form>
     )
 }

@@ -1,10 +1,11 @@
 import React from 'react'
+import Button from '../button/Button'
 
 const ProductItem = props => (
-    <article className="bg-orange-100 m-4 p-6 shadow">
+    <article className="bg-orange-100 m-4 p-6 shadow flex flex-col items-start">
         <h2 className="text-xl">{props.title}</h2>
         <span>{props.author}</span>
-        <button onClick={() => props.addFn(props.id)}>Add to Cart</button>
+        <Button onClick={() => props.addFn(props.id)} label="Add to Cart" />
         <ul className="text-sm">
             <li>Pages: {props.pages}</li>
             <li className="price">Price: {props.price}</li>
