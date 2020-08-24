@@ -31,9 +31,10 @@ const actions = {
         ...state,
         status: 'loading',
     }),
-    SET_CART: (state, { cart }) => ({
+    SET_CART: (state, { cart, count = 0 }) => ({
         ...state,
         cart,
+        count,
     }),
     UPDATE_COUNT: (state, { count }) => ({
         ...state,

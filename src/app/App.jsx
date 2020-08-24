@@ -5,23 +5,13 @@ import Cart from '../features/cart/Cart'
 import Home from '../features/home/Home'
 import Products from '../features/products/Products'
 import Warning from '../features/warning/Warning'
+import * as AppActions from './AppActions'
 
 const views = {
     cart: <Cart />,
     home: <Home />,
     products: <Products />,
 }
-
-const getCart = () =>
-    dispatch =>
-        fetch('/api/carts', { method: 'POST' })
-            .then(res => res.json())
-            .then(({ id }) => dispatch({
-                type: 'SET_CART',
-                payload: {
-                    cart: id,
-                },
-            }))
 
 const getView = view => views[view]
 
@@ -44,7 +34,7 @@ const App = ({ cart, view, getCart }) => {
 
 const mapStateToProps = state => ({ ...state })
 const mapDispatchToProps = dispatch => ({
-    getCart: () => dispatch(getCart()),
+    getCart: () => dispatch(AppActions.getCart()),
 })
 
 export default connect(
