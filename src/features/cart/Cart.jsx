@@ -15,9 +15,9 @@ const Cart = ({ cart, data, placeOrer, removeProduct }) => (
             {data.products.map(makeItem(removeProduct(cart)))}
             <CartTotal price={data.products.reduce((a, b) => a + b.price, 0)} />
         </section>
-        <section className="grid grid-cols-5 mt-8">
-            <div className="col-span-2"></div>
-            <CheckoutForm style="col-span-3" onSubmit={placeOrer(cart)} />
+        <section className="md:grid md:grid-cols-5 mt-8">
+            <div className="md:col-span-2"></div>
+            <CheckoutForm style="md:col-span-3" onSubmit={placeOrer(cart)} />
         </section>
     </>
 )
