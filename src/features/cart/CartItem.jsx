@@ -6,7 +6,7 @@ const CartItem = ({ id, cover, title, price, remove }) => (
         <img src={cover} className='checkout-img mr-4' />
         <div className="flex flex-col flex-grow md:flex-row justify-between items-stretch md:items-center">
             <span className="text-sm md:text-base">{title}</span>
-            <div className="flex justify-between">
+            <div className="flex flex-grow justify-between">
                 <Button onClick={() => remove(id)} label="x" type="round" style="mx-2" />
                 <span className="price">{price}</span>
             </div>

@@ -2,6 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimiseCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const { backend } = require('./config.json')
 
 module.exports = {
     entry: './src/index.jsx',
@@ -17,7 +18,7 @@ module.exports = {
         port: 3000,
         proxy: {
             '/api': {
-                target: 'http://libremo.test',
+                target: backend,
                 changeOrigin: true,
             },
         },
