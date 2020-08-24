@@ -11,6 +11,7 @@ const actions = {
         ...state,
         view: 'cart',
         status: 'idle',
+        count: data.count,
         data,
     }),
     LOADED_HOME: state => ({

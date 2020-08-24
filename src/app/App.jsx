@@ -24,7 +24,7 @@ const App = ({ cart, view, getCart }) => {
     return (
         <div className="bg-orange-200 min-h-screen">
             <Header />
-            <main className="p-4">
+            <main className="p-4 md:px-20 lg:px-32">
                 <Warning />
                 {getView(view)}
             </main>
