@@ -11,11 +11,11 @@ const makeItem = remove => (x, i) => <CartItem key={`${x.id}-${i}`} {...x} remov
 const Cart = ({ cart, data, placeOrer, removeProduct }) => (
     <>
         <SectionHeader header="Checkout" />
-        <section className="bg-orange-100 p-4">
+        <section className="bg-gray-100 p-4">
             {data.products.map(makeItem(removeProduct(cart)))}
             <CartTotal price={data.products.reduce((a, b) => a + b.price, 0)} />
         </section>
-        <section className="grid grid-cols-5">
+        <section className="grid grid-cols-5 mt-8">
             <div className="col-span-2"></div>
             <CheckoutForm style="col-span-3" onSubmit={placeOrer(cart)} />
         </section>
