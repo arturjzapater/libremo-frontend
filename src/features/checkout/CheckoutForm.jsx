@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Input from './Input'
 import Warning from '../warning/Warning'
+import validate from './validate'
 
 const handleChange = fn => event => fn(event.target.value)
 
@@ -14,14 +15,15 @@ const CheckoutForm = ({ style = '', onSubmit }) => {
 
     const handleSubmit = event => {
         event.preventDefault()
-        onSubmit({
+        const request = {
             name,
             c_o: co,
             address,
             postal_code: postalCode,
             email,
             phone,
-        })
+        }
+        if (validate(request)) onSubmit(request)
     }
 
     return (

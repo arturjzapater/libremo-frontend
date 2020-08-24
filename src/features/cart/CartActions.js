@@ -7,15 +7,21 @@ const makeOpts = (method, body) => ({
 })
 
 const placeOrder = details => dispatch => {
-    localStorage.removeItem('cart')
     fetch('/api/orders', makeOpts('POST', details))
+        .then(res => {
+            if (!res.ok) return Promise.reject()
+        })
         .then(res => res.json())
-        .then(data => dispatch({
-            type: 'LOADED_ORDER',
-            payload: {
-                data,
-            },
-        }))
+        .then(data => {
+            localStorage.removeItem('cart')
+            dispatch({
+                type: 'LOADED_ORDER',
+                payload: {
+                    data,
+                },
+            })
+        })
+        .catch(console.log)
 }
 
 const removeProduct = (cart, product) => dispatch => {
