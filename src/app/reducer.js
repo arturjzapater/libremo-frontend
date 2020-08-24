@@ -20,6 +20,14 @@ const actions = {
         status: 'idle',
         data: {},
     }),
+    LOADED_ORDER: (state, { data }) => ({
+        ...state,
+        cart: null,
+        count: 0,
+        view: 'order',
+        status: 'idle',
+        data,
+    }),
     LOADED_PRODUCTS: (state, { data }) => ({
         ...state,
         view: 'products',
