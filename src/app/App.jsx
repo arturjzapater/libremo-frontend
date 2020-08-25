@@ -19,7 +19,7 @@ const getView = view => views[view]
 const App = ({ cart, view, getCart }) => {
     useEffect(() => {
         getCart()
-        return () => fetch(`/api/carts/${cart}`, { method: 'DELETE' })
+        return () => fetch(`/api/carts/${cart.id}`, { method: 'DELETE' })
     }, [])
 
     return (

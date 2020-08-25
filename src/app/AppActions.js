@@ -1,12 +1,12 @@
 const getNewCart = dispatch =>
     fetch('/api/carts', { method: 'POST' })
         .then(res => res.json())
-        .then(({ id }) => {
-            localStorage.setItem('cart', id)
+        .then(data => {
+            localStorage.setItem('cart', data.id)
             dispatch({
                 type: 'SET_CART',
                 payload: {
-                    cart: id,
+                    cart: data,
                 },
             })
         })
@@ -15,16 +15,15 @@ const getCart = () => dispatch => {
     const cart = localStorage.getItem('cart')
     if (!cart) return getNewCart(dispatch)
 
-    fetch(`/api/carts/${cart}/itemcount`)
+    fetch(`/api/carts/${cart}`)
         .then(res => {
             if (!res.ok) Promise.reject()
             else return res.json()
         })
-        .then(({ count }) => dispatch({
+        .then(data => dispatch({
             type: 'SET_CART',
             payload: {
-                cart,
-                count,
+                cart: data,
             },
         }))
         .catch(() => getNewCart(dispatch))

@@ -1,9 +1,10 @@
 const initState = {
     view: 'home',
     status: 'idle',
-    cart: null,
+    cart: {},
     count: 0,
-    data: {},
+    order: {},
+    products: {},
 }
 
 const actions = {
@@ -12,38 +13,35 @@ const actions = {
         view: 'cart',
         status: 'idle',
         count: data.count,
-        data,
+        cart: data,
     }),
     LOADED_HOME: state => ({
         ...state,
         view: 'home',
         status: 'idle',
-        data: {},
     }),
     LOADED_ORDER: (state, { data }) => ({
         ...state,
-        cart: null,
+        cart: {},
         count: 0,
         view: 'order',
         status: 'idle',
-        data,
+        order: data,
     }),
     LOADED_PRODUCTS: (state, { data }) => ({
         ...state,
         view: 'products',
         status: 'idle',
-        data: {
-            products: data,
-        },
+        products: data,
     }),
     LOADING: state => ({
         ...state,
         status: 'loading',
     }),
-    SET_CART: (state, { cart, count = 0 }) => ({
+    SET_CART: (state, { cart }) => ({
         ...state,
         cart,
-        count,
+        count: cart.count,
     }),
     UPDATE_COUNT: (state, { count }) => ({
         ...state,

@@ -7,7 +7,7 @@ const Navbar = ({ cart, count, loadCart, loadHome, loadProducts }) => (
     <nav className="flex">
         <NavLink action={loadHome} text="Home" />
         <NavLink action={loadProducts} text="Products" />
-        <NavLink action={loadCart(cart)} text={`Cart (${count})`} />
+        <NavLink action={loadCart(cart.id)} text={`Cart (${count})`} />
     </nav>
 )
 

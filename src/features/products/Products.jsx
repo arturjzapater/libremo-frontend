@@ -8,10 +8,10 @@ const text = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo accu
 
 const makeItem = addFn => x => <ProductItem key={x.id} addFn={addFn} {...x} />
 
-const Products = ({ cart, data, addProduct }) => (
+const Products = ({ cart, products, addProduct }) => (
     <>
         <SectionHeader header="Books" text={text} />
-        {data.products.map(makeItem(addProduct(cart)))}
+        {products.map(makeItem(addProduct(cart.id)))}
     </>
 )
 

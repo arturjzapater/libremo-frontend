@@ -13,7 +13,6 @@ const placeOrder = details => dispatch => {
             return res.json()
         })
         .then(data => {
-            console.log('hi')
             localStorage.removeItem('cart')
             dispatch({
                 type: 'LOADED_ORDER',

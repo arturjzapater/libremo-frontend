@@ -23,7 +23,6 @@ const CheckoutForm = ({ style = '', onSubmit }) => {
             email,
             phone,
         }
-        console.log(validate(request))
         if (validate(request)) onSubmit(request)
     }
 
