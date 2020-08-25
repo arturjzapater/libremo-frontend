@@ -1,6 +1,6 @@
 # Libremo
 
-This repository is a front end for [Libremo](https://github.com/arturjzapater/libremo). It is built in JavaScript and it uses[Redux](https://redux.js.org/) for state management and [React](https://reactjs.org/) for view management.
+This repository is a front end for [Libremo](https://github.com/arturjzapater/libremo). It is built in JavaScript and it uses [Redux](https://redux.js.org/) for state management and [React](https://reactjs.org/) for view management.
 
 ## Prerequisites
 
