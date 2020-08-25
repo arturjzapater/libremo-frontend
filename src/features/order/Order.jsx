@@ -7,7 +7,7 @@ const Order = ({ data }) => console.log(data) || (
         <SectionHeader header="Thanks for your purchase!" />
         <section className="bg-gray-100 p-8 mt-12">
             <h3 className="italic text-sm">Your Purchased Books</h3>
-            <div>{data.products.map(x => x.title)}</div>
+            <ul>{data.products.map(x => <li key={x.id}>{x.title}</li>)}</ul>
         </section>
     </>
 )
