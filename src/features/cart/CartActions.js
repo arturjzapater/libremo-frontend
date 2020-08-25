@@ -33,6 +33,7 @@ const removeProduct = (cart, product) => dispatch => {
                 data,
             },
         }))
+        .catch(console.log)
 }
 
 export {

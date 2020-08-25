@@ -10,6 +10,7 @@ const getNewCart = dispatch =>
                 },
             })
         })
+        .catch(console.log)
 
 const getCart = () => dispatch => {
     const cart = localStorage.getItem('cart')

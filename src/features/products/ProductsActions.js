@@ -9,12 +9,13 @@ const makeOpts = product => ({
 const addProduct = (cart, product) => dispatch => {
     fetch(`/api/carts/${cart}`, makeOpts(product))
         .then(res => res.json())
-        .then(({ count }) => dispatch({
-            type: 'UPDATE_COUNT',
+        .then(data => dispatch({
+            type: 'SET_CART',
             payload: {
-                count,
+                cart: data,
             },
         }))
+        .catch(console.log)
 }
 
 export {

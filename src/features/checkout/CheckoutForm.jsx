@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import Button from '../button/Button'
 import Input from './Input'
+import Warning from '../warning/Warning'
 import validate from './validate'
-
-const handleChange = fn => event => fn(event.target.value)
 
 const CheckoutForm = ({ style = '', onSubmit }) => {
     const [ name, setName ] = useState('')
@@ -12,6 +11,12 @@ const CheckoutForm = ({ style = '', onSubmit }) => {
     const [ postalCode, setPostalCode ] = useState('')
     const [ email, setEmail ] = useState('')
     const [ phone, setPhone ] = useState('')
+    const [ error, setError ] = useState('')
+
+    const handleChange = fn => event => {
+        setError('')
+        fn(event.target.value)
+    }
 
     const handleSubmit = event => {
         event.preventDefault()
@@ -24,10 +29,12 @@ const CheckoutForm = ({ style = '', onSubmit }) => {
             phone,
         }
         if (validate(request)) onSubmit(request)
+        else setError('Please fill all fields correctly')
     }
 
     return (
         <form className={`flex flex-col items-stretch ${style}`}>
+            {error && <Warning text={error} />}
             <Input label="Name:" name="name" value={name} onChange={handleChange(setName)} />
             <Input label="C/O:" name="c_o" value={co} onChange={handleChange(setCo)} />
             <Input label="Delivery address:" name="address" value={address} onChange={handleChange(setAddress)} />
