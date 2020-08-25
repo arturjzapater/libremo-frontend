@@ -21,7 +21,7 @@ const placeOrder = details => dispatch => {
                 },
             })
         })
-        .catch(console.log)
+        .catch(() => dispatch({ type: 'ERRORED' }))
 }
 
 const removeProduct = (cart, product) => dispatch => {
@@ -33,7 +33,7 @@ const removeProduct = (cart, product) => dispatch => {
                 data,
             },
         }))
-        .catch(console.log)
+        .catch(() => dispatch({ type: 'ERRORED' }))
 }
 
 export {

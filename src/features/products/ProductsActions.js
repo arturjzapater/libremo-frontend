@@ -15,7 +15,7 @@ const addProduct = (cart, product) => dispatch => {
                 cart: data,
             },
         }))
-        .catch(console.log)
+        .catch(() => dispatch({ type: 'ERRORED' }))
 }
 
 export {

@@ -8,6 +8,10 @@ const initState = {
 }
 
 const actions = {
+    ERRORED: state => ({
+        ...state,
+        view: 'error',
+    }),
     LOADED_CART: (state, { data }) => ({
         ...state,
         view: 'cart',
@@ -41,11 +45,7 @@ const actions = {
     SET_CART: (state, { cart }) => ({
         ...state,
         cart,
-        count: cart.count,
-    }),
-    UPDATE_COUNT: (state, { count }) => ({
-        ...state,
-        count,
+        count: cart.count || 0,
     }),
     default: state => ({
         ...state,

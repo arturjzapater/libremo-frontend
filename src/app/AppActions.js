@@ -10,7 +10,7 @@ const getNewCart = dispatch =>
                 },
             })
         })
-        .catch(console.log)
+        .catch(() => dispatch({ type: 'ERRORED' }))
 
 const getCart = () => dispatch => {
     const cart = localStorage.getItem('cart')

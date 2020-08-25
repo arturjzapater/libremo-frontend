@@ -6,7 +6,7 @@ const loadCart = cart => dispatch => {
             type: 'LOADED_CART',
             payload: { data },
         }))
-        .catch(console.log)
+        .catch(() => dispatch({ type: 'ERRORED' }))
 }
 
 const loadHome = () => ({ type: 'LOADED_HOME' })
@@ -19,7 +19,7 @@ const loadProducts = () => dispatch => {
             type: 'LOADED_PRODUCTS',
             payload: { data },
         }))
-        .catch(console.log)
+        .catch(() => dispatch({ type: 'ERRORED' }))
 }
 
 export {

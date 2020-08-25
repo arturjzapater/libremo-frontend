@@ -6,9 +6,11 @@ import Home from '../features/home/Home'
 import Order from '../features/order/Order'
 import Products from '../features/products/Products'
 import * as AppActions from './AppActions'
+import Warning from '../features/warning/Warning'
 
 const views = {
     cart: <Cart />,
+    error: <Warning text="Oops, something went wrong!" />,
     home: <Home />,
     order: <Order />,
     products: <Products />,
@@ -18,9 +20,8 @@ const getView = view => views[view]
 
 const App = ({ cart, view, getCart }) => {
     useEffect(() => {
-        getCart()
-        return () => fetch(`/api/carts/${cart.id}`, { method: 'DELETE' })
-    }, [])
+        if (!cart.id) getCart()
+    }, [ view ])
 
     return (
         <div className="bg-gray-200 min-h-screen">
