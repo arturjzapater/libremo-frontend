@@ -1,3 +1,5 @@
+import request from '../../lib/request'
+
 const makeOpts = (method, body) => ({
     method,
     headers: {
@@ -7,11 +9,7 @@ const makeOpts = (method, body) => ({
 })
 
 const placeOrder = details => dispatch => {
-    fetch('/api/orders', makeOpts('POST', details))
-        .then(res => {
-            if (!res.ok) return Promise.reject()
-            return res.json()
-        })
+    request('/api/orders', makeOpts('POST', details))
         .then(data => {
             localStorage.removeItem('cart')
             dispatch({
@@ -25,8 +23,7 @@ const placeOrder = details => dispatch => {
 }
 
 const removeProduct = (cart, product) => dispatch => {
-    fetch(`/api/carts/${cart}/?action=delete`, makeOpts('PUT', { product }))
-        .then(res => res.json())
+    request(`/api/carts/${cart}/?action=delete`, makeOpts('PUT', { product }))
         .then(data => dispatch({
             type: 'LOADED_CART',
             payload: {
@@ -38,15 +35,14 @@ const removeProduct = (cart, product) => dispatch => {
 
 const updateQuantity = (cart, product, quantity) => dispatch => {
     if (quantity > 0) {
-        fetch(`/api/carts/${cart}`, makeOpts('PUT', { product, quantity }))
-            .then(res => res.json())
+        request(`/api/carts/${cart}`, makeOpts('PUT', { product, quantity }))
             .then(data => dispatch({
                 type: 'LOADED_CART',
                 payload: {
                     data,
                 },
             }))
-            .catch(() => dispatch({ tyoe: 'ERRORED' }))
+            .catch(() => dispatch({ type: 'ERRORED' }))
     }
 }
 

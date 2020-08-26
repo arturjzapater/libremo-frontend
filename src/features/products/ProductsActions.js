@@ -1,3 +1,5 @@
+import request from '../../lib/request'
+
 const makeOpts = product => ({
     method: 'PUT',
     headers: {
@@ -7,8 +9,7 @@ const makeOpts = product => ({
 })
 
 const addProduct = (cart, product) => dispatch => {
-    fetch(`/api/carts/${cart}`, makeOpts(product))
-        .then(res => res.json())
+    request(`/api/carts/${cart}`, makeOpts(product))
         .then(data => dispatch({
             type: 'SET_CART',
             payload: {

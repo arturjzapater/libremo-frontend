@@ -1,6 +1,7 @@
+import request from '../lib/request'
+
 const getNewCart = dispatch =>
-    fetch('/api/carts', { method: 'POST' })
-        .then(res => res.json())
+    request('/api/carts', { method: 'POST' })
         .then(data => {
             localStorage.setItem('cart', data.id)
             dispatch({
@@ -16,11 +17,7 @@ const getCart = () => dispatch => {
     const cart = localStorage.getItem('cart')
     if (!cart) return getNewCart(dispatch)
 
-    fetch(`/api/carts/${cart}`)
-        .then(res => {
-            if (!res.ok) Promise.reject()
-            else return res.json()
-        })
+    request(`/api/carts/${cart}`)
         .then(data => dispatch({
             type: 'SET_CART',
             payload: {
