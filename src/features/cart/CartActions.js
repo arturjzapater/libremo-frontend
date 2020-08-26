@@ -37,15 +37,17 @@ const removeProduct = (cart, product) => dispatch => {
 }
 
 const updateQuantity = (cart, product, quantity) => dispatch => {
-    fetch(`/api/carts/${cart}`, makeOpts('PUT', { product, quantity }))
-        .then(res => res.json())
-        .then(data => dispatch({
-            type: 'LOADED_CART',
-            payload: {
-                data,
-            },
-        }))
-        .catch(() => dispatch({ tyoe: 'ERRORED' }))
+    if (quantity > 0) {
+        fetch(`/api/carts/${cart}`, makeOpts('PUT', { product, quantity }))
+            .then(res => res.json())
+            .then(data => dispatch({
+                type: 'LOADED_CART',
+                payload: {
+                    data,
+                },
+            }))
+            .catch(() => dispatch({ tyoe: 'ERRORED' }))
+    }
 }
 
 export {
