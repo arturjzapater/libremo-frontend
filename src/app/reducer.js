@@ -36,7 +36,11 @@ const actions = {
         ...state,
         view: 'products',
         status: 'idle',
-        products: data,
+        products: {
+            data: data.data,
+            page: data.current_page,
+            last: data.last_page,
+        },
     }),
     LOADING: state => ({
         ...state,

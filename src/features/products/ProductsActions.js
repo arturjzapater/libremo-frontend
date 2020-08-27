@@ -19,6 +19,17 @@ const addProduct = (cart, product) => dispatch => {
         .catch(() => dispatch({ type: 'ERRORED' }))
 }
 
+const loadPage = page => dispatch => {
+    dispatch({ type: 'LOADING' })
+    request(`/api/products/?page=${page}`)
+        .then(data => dispatch({
+            type: 'LOADED_PRODUCTS',
+            payload: { data },
+        }))
+        .catch(() => dispatch({ type: 'ERRORED' }))
+}
+
 export {
-    addProduct
+    addProduct,
+    loadPage
 }
