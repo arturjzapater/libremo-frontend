@@ -17,7 +17,9 @@ cd libremo-frontend
 npm i
 ```
 
-Update [config.json](config.json) and set `backend` to your back end's URL.
+Update [config.json](config.json) and set the following fiels:
+- `backend` to your back end's URL
+- `port` to the port where you want to run the application (by default, it's 3000)
 
 Start webpack-dev-server
 
