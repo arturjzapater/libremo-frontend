@@ -3,15 +3,17 @@ import PageTile from './PageTile'
 
 const makeTile = (current, load) => (_, i) => {
     const page = i + 1
-    const [ onClick, type ] = current === page
-        ? [ undefined, 'current' ]
-        : [ () => load(page), undefined ]
+    const [ onClick, type, disabled ] = current === page
+        ? [ undefined, 'current', true ]
+        : [ () => load(page), undefined, false ]
+
     return (
         <PageTile
             key={`page-${page}`}
             label={page}
             onClick={onClick}
             type={type}
+            disabled={disabled}
         />
     )
 }

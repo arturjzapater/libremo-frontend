@@ -7,6 +7,14 @@
     width: auto;
 }
 
+.page-tile:first-child {
+    @apply rounded-l;
+}
+
+.page-tile:last-child {
+    @apply rounded-r;
+}
+
 .price::after {
-    content: ' SEK'
+    content: ' SEK';
 }
